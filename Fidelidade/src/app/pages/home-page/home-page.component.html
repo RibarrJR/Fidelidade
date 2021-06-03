@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- Menu -->
+        <nav class="navbar d-flex justify-content-between sticky-top navbar-expand-sm navbar-light navbar__bar">
+            <div class="navbar__logo">
+                <a class="navbar-brand" href="#"><img class="brand-img" src="../../../assets/img/dotzlogo.png"
+                        alt=""></a>
+            </div>
+
+            <div class="navbar__button-mobile d-lg-none">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#collapsibleNavId"
+                    href="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        Some placeholder content for the collapse component. This panel is hidden by default but
+                        revealed when the user activates the relevant trigger.
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar__links d-none d-md-flex">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active"[routerLink]="['./sobre']">Sobre</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['./avaliacao']">Avaliação</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['./contato']">Contato</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar__buttons d-none d-sm-block">
+                <button type="button" class="btn btn-outline-light m-1 nav__cadastro-botao " [routerLink]="['../NovoUsuario']">Cadastrar</button>
+                <button type="button" class="btn btn-outline-light m-1 nav__entrar-botao">Entrar</button>
+            </div>
+        </nav>
+    </div>
+    <!-- Menu Mobile -->
+    <div class="collapse row justify-content-center d-lg-none p-2 " id="collapsibleNavId">
+        <div class="col-12">
+            <!-- TODO:Transformar botões e links em componentes -->
+            <ul class="nav flex-column text-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Active link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled link</a>
+                </li>
+            </ul>
+        </div>
+        <!-- TODO:Transformar botões e links em componentes -->
+        <div class="col-12 row border border-warning">
+            <div class="col-6 text-center">
+                <button type="button" class="btn btn-outline-light m-1 nav__cadastro-botao">Cadastrar</button>
+            </div>
+            <div class="col-6  text-center">
+                <button type="button" class="btn btn-outline-light m-1 nav__entrar-botao">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- conteudo -->
+    <div class="row">
+        <div class="col-6 offset-3 text-center p-2 conteudo-esquerdo">
+
+
+        </div>
+        <div class=" offset-3 col-6 conteudo-direito">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { actionLoadingChange } from 'src/app/state/general/general.action';
 
 import { GeneralState } from 'src/app/state/general/general.reducers';
 import { actionToastOn } from 'src/app/state/toast/toast.action';
 import { ToastState } from 'src/app/state/toast/toast.reducers';
-import { RequestCadastroDeUsuario } from '../cadastro.model';
-import { CadastroService } from '../cadastro.service';
-
+import { RequestCadastroDeUsuario } from './models/cadastro.model';
+import { CadastroService } from './services/cadastro.service';
 @Component({
   selector: 'app-cadastro-page',
   templateUrl: './cadastro-page.component.html',
@@ -35,7 +35,8 @@ export class CadastroPageComponent implements OnInit {
     private _fb: FormBuilder,
     private service: CadastroService,
     private store: Store<GeneralState>,
-    private storeToast:Store<ToastState>
+    private storeToast:Store<ToastState>,
+    private router:Router
   ) {}
 
   ngOnInit(): void {}
@@ -46,10 +47,14 @@ export class CadastroPageComponent implements OnInit {
       this.store.dispatch(actionLoadingChange({ status: false }));
       this.storeToast.dispatch(
         actionToastOn({
-          message: 'Cadastro do usuário realizado com Sucesso!',
+          message: 'Cadastro do usuário realizado com sucesso!',
            visible: true,
         })
       );
     });
+  }
+
+  reset(){
+    this.form.reset();
   }
 }

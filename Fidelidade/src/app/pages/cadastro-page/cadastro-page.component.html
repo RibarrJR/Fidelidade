@@ -2,6 +2,7 @@
   <div>
     <h1 class="display-3 text-center">Cadastro de Usuários</h1>
   </div>
+
   <div class="col-12 offset-0 col-sm-6 offset-sm-3">
     <form [formGroup]="form">
       <div class="form-row">
@@ -72,19 +73,21 @@
           />
           <div class="invalid-feedback">Informe um Password Válido</div>
         </div>
-        <div class="col-12 d-flex justify-content-end">
+        <div class="col-12 d-flex justify-content-end my-3">
+          <button href="#" class="btn btn-link" [routerLink]="['../home']"> ↩ Voltar </button>
           <button
-            class="btn btn-outline-light text-primary m-3"
+            class="btn btn-outline-secondary mx-3"
+            (click)="reset()"
             [disabled]="!form.dirty"
           >
-            Limpar
+           ↺ Limpar
           </button>
           <button
-            class="btn btn-outline-success m-3"
+            class="btn btn-outline-success"
             (click)="enviar(form.value)"
             [disabled]="form.invalid"
           >
-            Enviar
+           ↵ Enviar
           </button>
         </div>
       </div>

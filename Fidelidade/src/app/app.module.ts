@@ -9,8 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GeneralEffects } from './state/general/general.effects';
 import { reducers } from './state/initial';
-import { LoadingComponent } from './components/loading/loading.component';;
-import { HomePageComponent } from './components/home-page/home-page.component';
+import { LoadingComponent } from './components/loading/loading.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { ToastEffects } from './state/toast/toast.effects';
 
@@ -19,7 +18,6 @@ import { ToastEffects } from './state/toast/toast.effects';
     AppComponent,
     LoadingComponent,
     ToastComponent,
-    HomePageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from './components/home-page/home-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: "home", component:HomePageComponent },
-  { path: "cadastro", loadChildren: () => import('src/app/cadastro/cadastro.module').then(m => m.CadastroModule) }
+  { path: '', redirectTo: 'app', pathMatch: 'full' },
+  { path: "app", loadChildren: () => import('src/app/pages/pages.module').then(m => m.PagesModule) }
 ];
 
 @NgModule({
