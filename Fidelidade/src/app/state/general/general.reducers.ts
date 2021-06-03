@@ -1,20 +1,29 @@
-import { Action, createReducer, on } from "@ngrx/store";
-import { actionLogin } from "./general.action";
-
+import { Action, createReducer, on, props } from '@ngrx/store';
+import { actionLoadingChange } from './general.action';
 
 export interface GeneralState {
-    loading: number;
+  loading: number;
 }
 
 export const initialState: GeneralState = {
-    loading: 0,
-}
+  loading: 0,
+};
 
-const GENERALREDUCER = createReducer(
-    initialState,
-    on(actionLogin, state => ({ ...state, loading: state.loading })),
+const GENERALREDUCERS = createReducer(
+  initialState,
+  on(actionLoadingChange, (state, { status }) => ({
+    ...state,
+    loading: status
+      ? state.loading + 1
+      : state.loading <= 0
+      ? 0
+      : state.loading - 1,
+  }))
 );
 
-export function generalReducer(state: GeneralState | undefined, action: Action) {
-    return GENERALREDUCER(state, action);
+export function generalReducer(
+  state: GeneralState | undefined,
+  action: Action
+) {
+  return GENERALREDUCERS(state, action);
 }

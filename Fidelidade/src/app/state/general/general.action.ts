@@ -1,6 +1,11 @@
 import { createAction, props } from "@ngrx/store";
 
 export const actionLogin = createAction(
-    '[Loading] StartLoading',
-    props<{start:0 }>()
-  );
+  '[Login] Login User',
+  props<{ start: 0 }>()
+);
+// Loading
+export const actionLoadingChange = createAction(
+  '[Loading] Start Loading',
+  props<{ status: boolean }>()
+);

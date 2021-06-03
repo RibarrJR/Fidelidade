@@ -9,21 +9,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GeneralEffects } from './state/general/general.effects';
 import { reducers } from './state/initial';
+import { LoadingComponent } from './components/loading/loading.component';;
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { ToastComponent } from './components/toast/toast.component';
+import { ToastEffects } from './state/toast/toast.effects';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoadingComponent,
+    ToastComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers,{}),
+    StoreModule.forRoot(reducers, {}),
     StoreDevtoolsModule.instrument({
-			name: 'autoshop',
-			maxAge: 25,
-			logOnly: environment.production,
-		}),
-		EffectsModule.forRoot([GeneralEffects]),
+      name: 'autoshop',
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
+    EffectsModule.forRoot([GeneralEffects,ToastEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]
